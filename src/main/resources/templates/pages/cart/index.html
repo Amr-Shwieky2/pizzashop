@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PTPT Pizza | Cart</title>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+            integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc="
+            crossorigin="anonymous" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+            rel='stylesheet'>
+
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/cart.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div th:replace="~{layouts/navbar/mainNavbar :: mainNavbar}"></div>
+
+        <div class="shopping-cart container">
+            <section class="h-100">
+                <div class="container h-100 py-5">
+                    <div id="cart-items-container"
+                        class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-10">
+
+                            <div
+                                class="d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="fw-normal mb-0">Shopping Cart</h3>
+                                <h5 class="fw-normal mb-0">
+                                    <span class="badge rounded-pill bg-success"
+                                        id="cart-items-count"></span>
+                                </h5>
+                            </div>
+
+                            <div id="cart-items">
+
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center mb-4">
+                                        <h5 class="mb-0">Total:</h5>
+                                        <h4 class="mb-0 text-end text-success"
+                                            id="cart-total-price">₪0.00</h4>
+                                    </div>
+
+                                    <div
+                                        class="d-flex justify-content-between align-items-center mb-4">
+                                        <div>
+                                            <a href="/menu"
+                                                class="btn btn-link text-muted p-0">
+                                                <i
+                                                    class="mdi mdi-arrow-left me-1"></i>
+                                                Back to Menu
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="/checkout"
+                                                class="btn btn-success">
+                                                <i
+                                                    class="bi bi-credit-card"></i>
+
+                                                Proceed to Checkout
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div
+                        th:replace="~{pages/cart/fragments/cartEmptyState :: cartEmptyState}"></div>
+                </div>
+
+            </section>
+
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+                crossorigin="anonymous"></script>
+
+            <script type="module" src="/js/scripts.js"></script>
+
+            <script type="module" src="/js/cart-view.js"></script>
+
+        </body>
+    </html>

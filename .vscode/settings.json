@@ -1,0 +1,18 @@
+{
+  "java.compile.nullAnalysis.mode": "disabled",
+  "git.ignoreLimitWarning": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "java.server.launchMode": "Standard",
+  "spring-boot.ls.checkjvm": false,
+  "files.exclude": {
+    "**/target": true
+  }
+}

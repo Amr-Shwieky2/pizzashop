@@ -1,0 +1,19 @@
+<!-- fragments/cartEmptyState.html -->
+<div th:fragment="cartEmptyState">
+    <div class="blankslate text-center mt-5">
+        <img class="blankslate-top-img mb-4"
+            src="/assets/logos/cart-empty-state.png" alt="Empty Cart"
+            style="max-width: 300px; border-radius: 4%;" />
+        <div class="blankslate-body">
+            <h4>Your cart is feeling empty</h4>
+            <p>
+                Looks like you haven’t added any thing yet. Browse our menu and
+                treat yourself!
+            </p>
+        </div>
+        <div class="blankslate-actions mt-3">
+            <a href="/menu" class="btn btn-primary">View Menu</a>
+            <a href="/" class="btn btn-outline-secondary ms-2">Go Home</a>
+        </div>
+    </div>
+</div>

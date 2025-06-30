@@ -1,0 +1,94 @@
+<div th:fragment="registerFormFragment">
+
+    <form th:action="@{/register}" method="post"
+        class="w-100 needs-validation mx-auto shadow"
+        style="max-width: 400px; background-color: #ffffff; border-radius: 14px; padding: 60px;"
+        novalidate
+        id="registerForm">
+
+        <div th:if="${error}" class="alert alert-danger text-center"
+            th:text="${error}"></div>
+        <div th:if="${success}" class="alert alert-success text-center"
+            th:text="${success}"></div>
+
+        <input type="hidden" th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+
+        <h3 class="fw-bold mb-4 text-center">Create Account</h3>
+
+        <!-- Username -->
+        <div class="form-group mb-4">
+            <label class="form-label" for="username">Username</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-user fa-lg  fa-fw"></i>
+                </span>
+                <input type="text" id="username" name="username"
+                    class="form-control"
+                    placeholder="Choose a username" required />
+                <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group mb-4">
+            <label for="formEmail" class="form-label">Email Address</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-envelope fa-lg  fa-fw"></i>
+                </span>
+
+                <input type="email" id="formEmail" name="email"
+                    class="form-control" placeholder="Enter your email"
+                    required />
+
+                <div class="invalid-feedback">Please enter a valid email
+                    address.</div>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-4">
+            <label for="formPassword" class="form-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-lock fa-lg  fa-fw"></i>
+                </span>
+                <input type="password" id="formPassword" name="password"
+                    class="form-control" placeholder="Enter your password"
+                    required minlength="3" />
+                <div class="invalid-feedback">Password must be at least 3
+                    characters.</div>
+            </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group mb-4">
+            <label class="form-label" for="confirmPassword">Confirm
+                Password</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-key fa-lg  fa-fw"></i>
+                </span>
+                <input type="password" id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-control" placeholder="Confirm your password"
+                    required />
+                <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-dark btn-lg"
+                id="registerButton" disabled>
+                Register
+            </button>
+        </div>
+
+        <p class="text-center small">
+            Already have an account? <a th:href="@{/login}"
+                class="link-dark">Log in here</a>
+        </p>
+    </form>
+</div>

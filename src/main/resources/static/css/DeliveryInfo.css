@@ -1,0 +1,9 @@
+.add-address-card {
+  border: 2px solid #dee2e6;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.add-address-card:hover {
+  border-color: #0d6efd;
+}

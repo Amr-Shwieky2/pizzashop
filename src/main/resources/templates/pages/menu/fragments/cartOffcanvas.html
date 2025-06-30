@@ -1,0 +1,36 @@
+<div th:fragment="cartOffcanvas">
+    <div class="offcanvas offcanvas-end p-3" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Customize Your Pizza</h5>
+            <button type="button" class="btn-close text-reset"
+                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-4" id="cart-body">
+            <div class="mb-3">
+                <h5>Select Size:</h5>
+                <div id="size-options" class="row text-center g-2">
+                    <!-- populated by JS -->
+                </div>
+            </div>
+            <hr class="hr" />
+            <div class="flex-grow-1 mb-3">
+                <h5>Extra Toppings:</h5>
+                <div id="topping-options" class="mt-4"></div>
+            </div>
+
+            <div class="pt-3 border-top mt-3">
+                <div
+                    class="d-flex justify-content-between align-items-center fw-bold fs-5 mb-3"
+                    id="total-price-wrapper">
+                    <span>Total:</span>
+                    <span id="total-price">₪0.00</span>
+                </div>
+                <button class="btn btn-primary w-100" id="confirm-add-to-cart">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

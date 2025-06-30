@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PTPT Pizza | Home</title>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous" />
+
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/home.css" rel="stylesheet" />
+    </head>
+    <body class="bg-light">
+
+        <div th:replace="~{layouts/navbar/mainNavbar :: mainNavbar}"></div>
+
+        <header class="hero px-3" id="home">
+            <div>
+                <h1 class="fw-bold">Welcome to Pizza Delight</h1>
+                <p class="lead">Delicious, handmade pizzas delivered hot & fresh
+                    to your door</p>
+                <a href="/#menu" class="btn btn-danger btn-lg mt-3">Order
+                    Now</a>
+            </div>
+        </header>
+
+        <section id="menu" class="container py-5">
+            <h2 class="text-center text-danger mb-4">Featured Pizzas</h2>
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://media.istockphoto.com/id/804291810/photo/pepperoni-pizza-italian-pizza-on-white-background.jpg?b=1&s=612x612&w=0&k=20&c=3WOsd3dx00-3WBf1RAj3FqHchj_nawOdGxvNnaBByRI="
+                            class="card-img-top" alt="Pepperoni Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pepperoni Classic</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://giodelicatesse.com/wp-content/uploads/2023/11/12943062-pizza-vegetarian-isolated-over-white-background-top-view.jpg"
+                            class="card-img-top" alt="Veggie Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Garden Fresh</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://media.istockphoto.com/id/1168754685/photo/pizza-margarita-with-cheese-top-view-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=psLRwd-hX9R-S_iYU-sihB4Jx2aUlUr26fkVrxGDfNg="
+                            class="card-img-top" alt="Cheese Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Cheese Lover</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://i.pinimg.com/736x/ec/1f/d3/ec1fd366a2a14042715fefeb346f5814.jpg "
+                            class="card-img-top" alt="BBQ Chicken Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">BBQ Chicken</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://img.freepik.com/free-photo/fresh-pizza-with-mushrooms-ham-cheese-white-background-copy-space-homemade-with-love-fast-delivery-recipe-menu-top-view_639032-297.jpg?semt=ais_hybrid&w=740"
+                            class="card-img-top" alt="Meat Lovers Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Meat Lovers</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img
+                            src="https://media.istockphoto.com/id/479293070/photo/pizza.jpg?s=612x612&w=0&k=20&c=6_FFHbieV8R1VPc7fehj5K6s3vlPt15xk6MeN6rSN_E="
+                            class="card-img-top" alt="Hawaiian Pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hawaiian Delight</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="/menu" class="btn btn-outline-danger btn-lg">
+                    See Full Menu <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center text-danger mb-4">Fresh Ingredients</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <img
+                            src="https://media.istockphoto.com/id/1283672612/photo/tomato-garlic-onion-parsley-and-peppercorns-isolated-on-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=8Y_Gvnc8Ilw3Mgw-R3HyRUR_zChJWE_mIv8Gadssppc="
+                            class="img-fluid rounded" alt="Ingredients">
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="fw-bold">Crafted with Care</h4>
+                        <p>We use only fresh tomatoes, homemade dough,
+                            hand-sliced toppings, and premium cheese to deliver
+                            mouthwatering taste in every bite.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5" id="testimonials">
+            <h2 class="text-center text-danger mb-4">What Our Customers Say</h2>
+            <div class="text-center">
+                <blockquote class="blockquote">
+                    <p>"The best pizza I've had in years. Fast delivery and so fresh!"</p>
+                    <footer class="blockquote-footer">Samantha T.</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="text-center py-5" id="why-us">
+            <div class="container">
+                <h2 class="mb-4">Why Choose Us?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <i class="fas fa-pizza-slice fa-3x mb-3"></i>
+                        <h5>Delicious Custom Pizzas</h5>
+                        <p>Create pizzas your way with fresh, premium
+                            ingredients.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-truck fa-3x mb-3"></i>
+                        <h5>Fast Delivery</h5>
+                        <p>Hot and tasty pizza delivered right to your door.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-user-friends fa-3x mb-3"></i>
+                        <h5>Friendly Support</h5>
+                        <p>Need help? Our team is just a message away.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark text-white text-center py-4">
+            <p class="mb-0">&copy; 2025 PTPT Pizza. All rights reserved.</p>
+        </footer>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+
+        <script type="module" src="/js/scripts.js"></script>
+
+    </body>
+</html>

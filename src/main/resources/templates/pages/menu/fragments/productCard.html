@@ -1,0 +1,40 @@
+<div th:fragment="productCard(productView)">
+    <div class="card">
+        <img th:src="@{${productView.product.imageUrl}}" class="card-img-top"
+            th:alt="${productView.product.name}" />
+
+        <div class="card-body">
+            <div class="mb-5">
+                <h5 class="mb-1" th:text="${productView.product.name}">Product
+                    Name</h5>
+                <p class="text-muted mb-1" style="min-height: 50px;"
+                    th:text="${productView.product.description}">
+                    Product description
+                </p>
+            </div>
+            <div class="row align-items-center text-center g-0">
+                <div class="col-4">
+                    <h5
+                        th:text="'₪' + ${productView.defaultPrice}">₪0</h5>
+                </div>
+                <div class="col-8">
+                    <a href="#"
+                        class="btn btn-dark w-100 p-3 text-warning badge rounded-pill"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        th:attr="
+                            data-name=${productView.product.name},
+                            data-id=${productView.product.id},
+                            data-image=${productView.product.imageUrl},
+                            data-sizes=${productView.sizesJson},
+                            data-toppings=${productView.toppingsJson},
+                            data-default-size=${productView.defaultSize},
+                            data-default-price=${productView.defaultPrice}">
+                        ADD TO CART
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

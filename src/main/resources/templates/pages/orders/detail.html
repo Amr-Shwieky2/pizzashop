@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PTPT Pizza | Order Details</title>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+
+        <link href="/css/order.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div th:replace="~{layouts/navbar/mainNavbar :: mainNavbar}"></div>
+
+        <section class="order-detail-section">
+            <div class="container py-5">
+                <div
+                    class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="mb-0">Order Details</h1>
+                    <div class="d-flex gap-2">
+                        <a href="/orders" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i> Back to
+                            Orders
+                        </a>
+                        <a href="/" class="btn btn-outline-secondary">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Order Summary Card -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-receipt me-2"></i>Order
+                                    Summary
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <small class="text-muted">Order ID</small>
+                                    <div class="fw-bold text-primary"
+                                        th:text="${order.id}">123e4567-e89b-12d3-a456-426614174000</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted">Date &
+                                        Time</small>
+                                    <div
+                                        th:text="${#temporals.format(order.createdAt, 'MMMM dd, yyyy')}">January
+                                        01, 2024</div>
+                                    <div class="text-muted"
+                                        th:text="${#temporals.format(order.createdAt, 'HH:mm')}">12:00</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted">Status</small>
+                                    <div>
+                                        <span class="badge fs-6"
+                                            th:class="${order.status == 'PENDING' ? 'bg-warning' : 
+                                                       order.status == 'CONFIRMED' ? 'bg-info' : 
+                                                       order.status == 'DELIVERED' ? 'bg-success' : 'bg-danger'}"
+                                            th:text="${order.status}">PENDING</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted">Payment
+                                        Method</small>
+                                    <div>
+                                        <i class="fas fa-credit-card me-1"
+                                            th:if="${order.paymentMethod == 'CARD'}"></i>
+                                        <i class="fas fa-money-bill me-1"
+                                            th:if="${order.paymentMethod == 'CASH'}"></i>
+                                        <i class="fab fa-paypal me-1"
+                                            th:if="${order.paymentMethod == 'PAYPAL'}"></i>
+                                        <span
+                                            th:text="${order.paymentMethod}">CARD</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted">Delivery
+                                        Address</small>
+                                    <div th:text="${order.deliveryAddress}">123
+                                        Main St, City, State 12345</div>
+                                </div>
+
+                                <hr>
+
+                                <div class="text-center">
+                                    <h4 class="text-success mb-0">
+                                        Total: ₪<span
+                                            th:text="${#numbers.formatDecimal(order.totalPrice, 1, 2)}">25.99</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Items -->
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header bg-secondary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-pizza-slice me-2"></i>Order
+                                    Items
+                                </h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item"
+                                        th:each="item : ${order.items}">
+                                        <div
+                                            class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1 fw-bold"
+                                                    th:text="${item.productName}">Margherita
+                                                    Pizza</h6>
+                                                <p class="mb-1 text-muted small"
+                                                    th:text="${item.productCategory}">Pizza</p>
+                                                <p class="mb-2">
+                                                    <span
+                                                        class="badge bg-light text-dark"
+                                                        th:text="${item.size}">MEDIUM</span>
+                                                </p>
+
+                                                <!-- Toppings -->
+                                                <div
+                                                    th:if="${!item.toppings.empty}"
+                                                    class="mb-2">
+                                                    <small
+                                                        class="text-muted">Toppings:</small>
+                                                    <div
+                                                        class="d-flex flex-wrap gap-1 mt-1">
+                                                        <span
+                                                            th:each="topping : ${item.toppings}"
+                                                            class="badge bg-warning text-dark">
+                                                            <span
+                                                                th:text="${topping.name}">Pepperoni</span>
+                                                            (+$<span
+                                                                th:text="${#numbers.formatDecimal(topping.price, 1, 2)}">2.00</span>)
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <small class="text-muted">
+                                                    Base Price: $<span
+                                                        th:text="${#numbers.formatDecimal(item.basePrice, 1, 2)}">12.99</span>
+                                                </small>
+                                            </div>
+                                            <div class="text-end">
+                                                <h6 class="mb-0 text-success">
+                                                    $<span
+                                                        th:text="${#numbers.formatDecimal(item.subtotal, 1, 2)}">16.99</span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script type="module" src="/js/scripts.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

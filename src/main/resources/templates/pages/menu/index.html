@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PTPT Pizza | Menu</title>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+            integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc="
+            crossorigin="anonymous" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+            rel='stylesheet'>
+
+        <link href="/css/cartOffcanvas.css" rel="stylesheet" />
+        <link href="/css/menu.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div th:replace="~{layouts/navbar/mainNavbar :: mainNavbar}"></div>
+
+        <section class="menu-section">
+            <div class="container py-5">
+                <div
+                    class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <a href="/" class="btn btn-link text-muted">
+                            <i class="mdi mdi-arrow-left me-1"></i> Back to Home
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/cart" class="btn btn-success">
+                            <i class="fas fa-shopping-cart me-1"></i> Go to Cart
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4"
+                        th:each="productView : ${products}">
+                        <div
+                            th:replace="~{pages/menu/fragments/productCard :: productCard(${productView})}"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div
+            th:replace="~{pages/menu/fragments/cartOffcanvas :: cartOffcanvas}"></div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3"
+            id="toast-container"></div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="module" src="/js/cart-utils.js"></script>
+        <script type="module" src="/js/scripts.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<div th:fragment="orderSummary">
+    <div class="card checkout-order-summary">
+        <div class="card-body">
+            <div class="p-3 bg-light mb-3">
+                <h5 class="font-size-16 mb-0">Order Summary
+                </h5>
+            </div>
+            <div class="table-responsive">
+                <table
+                    class="table table-centered mb-0 table-nowrap">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0"
+                                style="width: 110px;"
+                                scope="col">Product</th>
+                            <th class="border-top-0"
+                                scope="col">Product Desc</th>
+                            <th class="border-top-0"
+                                scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-summary-body">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PTPT Pizza | Login</title>
+
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            rel="stylesheet"
+            integrity="sha512-..."
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+
+        <link href="/css/login.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <section class="vh-100">
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <!-- Left Column -->
+                    <div
+                        class="col-lg-6 d-flex flex-column justify-content-center align-items-center text-black px-5 position-relative">
+
+                        <div th:if="${param.register == null}">
+                            <div
+                                th:replace="~{pages/login/fragments/loginForm :: loginFormFragment}"></div>
+                        </div>
+
+                        <div th:if="${param.register != null}">
+                            <div
+                                th:replace="~{pages/login/fragments/registerForm :: registerFormFragment}"></div>
+                        </div>
+
+                        <!-- Footer Logo -->
+                        <div
+                            style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center;">
+                            <a href="/">
+                                <img th:src="@{/assets/logos/app-logo.png}"
+                                    alt="Pizza App Logo" height="100">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column (Hidden on small screens) -->
+                    <div class="col-lg-6 px-0 d-none d-lg-block">
+                        <img
+                            src="/assets/images/backgrounds/pizza-background.jpg"
+                            alt="Login image"
+                            class="w-100 vh-100"
+                            style="object-fit: cover; object-position: left;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <script type="module" th:if="${param.register == null}"
+        th:src="@{/js/login.js}"></script>
+    <script type="module" th:if="${param.register != null}"
+        th:src="@{/js/register.js}"></script>
+
+</html>

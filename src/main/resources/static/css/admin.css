@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #343a40;
+}
+.table thead {
+    background-color: #343a40;
+    color: white;
+}
+.btn-primary {
+    background-color: #343a40;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #495057;
+}
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: orange;
+}
+.dashboard-content {
+    width: 100%;
+    max-width: 1200px;
+}
+.card-title {
+    font-size: 1.5rem;
+}
+.thead-dark th {
+    background-color: #343a40;
+    color: white;
+}

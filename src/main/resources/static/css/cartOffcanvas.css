@@ -1,0 +1,14 @@
+.pizza-size-img {
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: 0.3s ease;
+}
+
+label:has(input[type="radio"]:checked) .pizza-size-img {
+  border-color: #74d30d;
+  transform: scale(1.15);
+}
+
+.pizza-size-img:hover {
+  transform: scale(1.15);
+}

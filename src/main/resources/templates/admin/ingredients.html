@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Ingredients</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="/css/admin.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:insert="navbar/adminNavbar :: navbar"></div>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Manage Ingredients</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ingredient : ${ingredients}">
+            <td th:text="${ingredient.id}"></td>
+            <td th:text="${ingredient.name}"></td>
+            <td>
+                <form th:action="@{'/admin/ingredients/' + ${ingredient.id} + '/updatePrice'}" method="post" class="d-flex">
+                    <input type="number" step="0.01" name="price" th:value="${ingredient.price}" class="form-control form-control-sm me-2" required>
+                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                </form>
+            </td>
+            <td th:text="${ingredient.inStock ? 'Yes' : 'No'}"></td>
+            <td>
+                <form th:action="@{'/admin/ingredients/' + ${ingredient.id} + '/updateStock'}" method="post">
+                    <input type="hidden" name="inStock" th:value="${!ingredient.inStock}" />
+                    <button type="submit" class="btn btn-sm" th:classappend="${ingredient.inStock ? 'btn-danger' : 'btn-success'}" th:text="${ingredient.inStock ? 'Mark Out of Stock' : 'Mark In Stock'}"></button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary mt-3" onclick="window.location.href='/admin/dashboard'">Back to Dashboard</button>
+</div>
+</body>
+</html>

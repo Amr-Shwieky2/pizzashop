@@ -1,0 +1,35 @@
+<li th:fragment="authDropdown" class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+        id="userDropdown"
+        role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img src="/assets/avatars/default-avatar.jpg"
+            alt="User Avatar"
+            width="32" height="32"
+            class="rounded-circle me-2">
+        <span th:text="${#authentication.name}"
+            class="text-dark fw-semibold small"></span>
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="userDropdown">
+        <li><span class="dropdown-item d-flex align-items-center text-muted"
+                style="gap: 8px; cursor: not-allowed;">
+                <i class="fas fa-user"></i>Profile <small>(Coming Soon)</small>
+            </span></li>
+        <li><a class="dropdown-item d-flex align-items-center" href="/orders"
+                style="gap: 8px;">
+                <i class="fas fa-receipt"></i>My Orders
+            </a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <button type="submit"
+                    class="dropdown-item text-danger d-flex align-items-center"
+                    style="gap: 8px;">
+                    <i class="fas fa-sign-out-alt"></i>Logout
+                </button>
+            </form>
+        </li>
+    </ul>
+</li>

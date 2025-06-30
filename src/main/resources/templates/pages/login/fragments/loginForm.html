@@ -1,0 +1,75 @@
+<div th:fragment="loginFormFragment">
+    <form th:action="@{/login}" method="post"
+        class="w-100 needs-validation mx-auto shadow"
+        style="max-width: 400px; background-color: #ffffff; border-radius: 14px; padding: 60px;"
+        novalidate
+        id="loginForm">
+
+        <h2 class="fw-bold mb-4 text-center">Welcome Back</h2>
+
+        <input type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+
+        <!-- Email Field -->
+        <div class="form-group mb-4">
+            <label for="formEmail" class="form-label">Email Address</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-envelope" title="Email"></i>
+                </span>
+                <input type="email"
+                    id="formEmail"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required />
+                <div class="invalid-feedback" id="emailError">
+                    Please enter a valid email address.
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group mb-4">
+            <label for="formPassword" class="form-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-lock" title="Password"></i>
+                </span>
+                <input type="password"
+                    id="formPassword"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required minlength="3" />
+
+                <div class="invalid-feedback" id="passwordError">
+                    Password must be at least 3 characters.
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div th:if="${param.error}" class="alert alert-danger text-center">
+            Invalid username or password. Please try again.
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid mb-3">
+            <button id="loginButton" class="btn btn-dark btn-lg" type="submit"
+                disabled>
+                Login
+            </button>
+        </div>
+
+        <!-- Additional Links -->
+
+        <div class="text-center small mt-2">
+            Don't have an account?
+            <a th:href="@{/login(register=true)}"
+                class="link-dark fw-semibold">Register here</a>
+
+        </div>
+    </form>
+</div>
