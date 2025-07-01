@@ -26,6 +26,9 @@ public class Product {
     private String description;
     private String imageUrl;
 
+    @Column(name = "in_stock")
+    private boolean inStock = true;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

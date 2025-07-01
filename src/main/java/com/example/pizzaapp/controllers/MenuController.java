@@ -23,7 +23,7 @@ public class MenuController {
 
     @GetMapping("/menu")
     public String showMenuPage(Model model) {
-        List<ProductView> productViews = productViewService.toProductViews(productRepository.findAllWithDetails());
+        List<ProductView> productViews = productViewService.toProductViews(productRepository.findAllInStockWithDetails());
         model.addAttribute("products", productViews);
         return "pages/menu/index";
     }

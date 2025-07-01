@@ -16,4 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     @EntityGraph(attributePaths = { "category", "options", "allowedToppings" })
     @Query("SELECT p FROM Product p")
     List<Product> findAllWithDetails();
+
+    @EntityGraph(attributePaths = { "category", "options", "allowedToppings" })
+    @Query("SELECT p FROM Product p WHERE p.inStock = true")
+    List<Product> findAllInStockWithDetails();
 }
