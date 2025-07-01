@@ -199,4 +199,13 @@ public class OrderService {
                 item.getSubtotal(),
                 toppingDtos);
     }
+
+    public void updateOrderStatus(UUID orderId, OrderStatus.OrderStatusEnum status) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+        OrderStatus newStatus = orderStatusRepository.findByCode(status)
+                .orElseThrow(() -> new IllegalArgumentException("Status not found"));
+        order.setStatus(newStatus);
+        orderRepository.save(order);
+    }
 }
