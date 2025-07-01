@@ -371,7 +371,7 @@ src/
 
 ```bash
 git clone https://github.com/Solange-s-Courses/ex4-spring-anas-amr.git
-cd spring-pizza-app
+cd pizzashop
 ```
 
 ### 2. Database Setup
@@ -390,7 +390,7 @@ mvn clean compile
 mvn spring-boot:run
 ```
 
-### 5. Access the Application
+### 4. Access the Application
 
 - **Application**: http://localhost:8080
 
@@ -501,7 +501,7 @@ mvn spring-boot:run
 - [ ] Multi-language support
 - [ ] Delivery tracking system
 
-## � Authors
+## ✨ Authors
 
 <div align="center">
 
@@ -514,7 +514,7 @@ mvn spring-boot:run
 <td align="center" width="50%">
 <img src="https://github.com/Anas-Emad-Dweik.png" width="120px" alt="Anas Dweik"/>
 <br/>
-<h3>� Anas Dweik</h3>
+<h3>👨‍💻 Anas Dweik</h3>
 <p><strong>Full Stack Developer</strong></p>
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Anas-Emad-Dweik)
