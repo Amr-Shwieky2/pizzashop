@@ -2,6 +2,7 @@ package com.example.pizzaapp.services;
 
 import com.example.pizzaapp.dtos.ProductView;
 import com.example.pizzaapp.models.Product;
+import com.example.pizzaapp.models.Topping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -51,6 +52,7 @@ public class ProductViewService {
     private String formatToppingsJson(Product product) {
         try {
             return objectMapper.writeValueAsString(product.getAllowedToppings().stream()
+                    .filter(Topping::isInStock)
                     .map(t -> Map.of(
                             "label", t.getName(),
                             "price", t.getPrice(),

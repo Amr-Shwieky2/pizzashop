@@ -34,14 +34,34 @@
             </td>
             <td th:text="${ingredient.inStock ? 'Yes' : 'No'}"></td>
             <td>
-                <form th:action="@{'/admin/ingredients/' + ${ingredient.id} + '/updateStock'}" method="post">
-                    <input type="hidden" name="inStock" th:value="${!ingredient.inStock}" />
-                    <button type="submit" class="btn btn-sm" th:classappend="${ingredient.inStock ? 'btn-danger' : 'btn-success'}" th:text="${ingredient.inStock ? 'Mark Out of Stock' : 'Mark In Stock'}"></button>
-                </form>
+                <div class="d-flex">
+                    <form th:action="@{'/admin/ingredients/' + ${ingredient.id} + '/updateStock'}" method="post" class="me-2">
+                        <input type="hidden" name="inStock" th:value="${!ingredient.inStock}" />
+                        <button type="submit" class="btn btn-sm" th:classappend="${ingredient.inStock ? 'btn-danger' : 'btn-success'}" th:text="${ingredient.inStock ? 'Mark Out of Stock' : 'Mark In Stock'}"></button>
+                    </form>
+                    <form th:action="@{'/admin/ingredients/' + ${ingredient.id} + '/delete'}" method="post">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </div>
             </td>
         </tr>
         </tbody>
     </table>
+    <h3 class="mt-4">Add Ingredient</h3>
+    <form th:action="@{/admin/ingredients/add}" method="post" class="row g-2 mb-3">
+        <div class="col-auto">
+            <input type="text" name="name" placeholder="Name" class="form-control" required>
+        </div>
+        <div class="col-auto">
+            <input type="number" step="0.01" name="price" placeholder="Price" class="form-control" required>
+        </div>
+        <div class="col-auto">
+            <input type="text" name="imageUrl" placeholder="Image URL" class="form-control">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
     <button class="btn btn-primary mt-3" onclick="window.location.href='/admin/dashboard'">Back to Dashboard</button>
 </div>
 </body>
